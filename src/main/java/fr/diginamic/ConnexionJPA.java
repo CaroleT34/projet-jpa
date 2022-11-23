@@ -49,19 +49,19 @@ public class ConnexionJPA {
 //		// Afficher les données du fichier ligne par ligne
 //		for (String line : lines) {
 //			// System.out.println(line);
-//		}
-//
-//		// Parcours le fichier
-//		for (int i = 1; i < lines.size(); i++) {
-//			String[] tab = lines.get(i).split(";");
-//			id = Integer.parseInt(tab[0]);
-//			nom = tab[1];
-//			sexe = tab[2];
-//			age = Integer.parseInt(tab[3]);
-//			taille = Double.parseDouble(tab[4]);
-//			poids = Double.parseDouble(tab[5]);
-//			System.out.println(listAthletes.get(1));
-//		}
+		}
+
+		// Parcours le fichier
+		for (int i = 1; i < lines.size(); i++) {
+			String[] tab = lines.get(i).split(";");
+			id = Integer.parseInt(tab[0]);
+			nom = tab[1];
+			sexe = tab[2];
+			age = Integer.parseInt(tab[3]);
+			taille = Double.parseDouble(tab[4]);
+			poids = Double.parseDouble(tab[5]);
+			System.out.println(listAthletes.get(1));
+		}
 
 	}
 }
