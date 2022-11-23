@@ -1,0 +1,67 @@
+package fr.diginamic;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import fr.diginamic.entity.Athlete;
+
+/**
+ * @author CaroleTOULORGE
+ *
+ */
+public class ConnexionJPA {
+
+	public static void main(String[] args) {
+		// Créer une instance d’entityManagerFactory
+		EntityManagerFactory entity = Persistence.createEntityManagerFactory("JO");
+		// Créer une instance d’entityManager
+		EntityManager em = entity.createEntityManager();
+		EntityTransaction transac = em.getTransaction();
+		 
+		transac.begin();
+		
+		//Test
+		Athlete athlete = new Athlete();
+		athlete.setNom("Georges W");
+		athlete.setSexe("M");
+		athlete.setAge(23);
+		athlete.setTaille(1.83);
+		athlete.setPoids(56);
+		
+		em.persist(athlete);
+		
+		transac.commit();
+		
+		// Lecture du fichier des traductions
+		
+//		// Initilisation des données concernant l'Athlete
+//		ArrayList<Athlete> listAthletes = new ArrayList<Athlete>();
+//		int id = 0;
+//		String nom = "";
+//		String sexe = "";
+//		int age = 0;
+//		double taille = 0;
+//		double poids = 0;
+//
+//		List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+//		// Afficher les données du fichier ligne par ligne
+//		for (String line : lines) {
+//			// System.out.println(line);
+//		}
+//
+//		// Parcours le fichier
+//		for (int i = 1; i < lines.size(); i++) {
+//			String[] tab = lines.get(i).split(";");
+//			id = Integer.parseInt(tab[0]);
+//			nom = tab[1];
+//			sexe = tab[2];
+//			age = Integer.parseInt(tab[3]);
+//			taille = Double.parseDouble(tab[4]);
+//			poids = Double.parseDouble(tab[5]);
+//			System.out.println(listAthletes.get(1));
+//		}
+
+	}
+}
