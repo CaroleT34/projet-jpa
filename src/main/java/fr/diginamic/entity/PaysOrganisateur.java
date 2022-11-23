@@ -3,7 +3,9 @@
  */
 package fr.diginamic.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,6 +47,10 @@ public class PaysOrganisateur {
 	@Enumerated(EnumType.STRING)
 	private Saison saison;
 	
+	/** epreuves */
+	@OneToMany(mappedBy = "paysOrganisateur")
+	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
+	
 	/**Constructeur (utilisé par Hibernate)
 	 *
 	 */
@@ -51,10 +58,13 @@ public class PaysOrganisateur {
 		
 	}
 
+
 	@Override
 	public String toString() {
-		return "PaysOrganisateur [id=" + id + ", ville=" + ville + ", annee=" + annee + ", saison=" + saison + "]";
+		return "PaysOrganisateur [id=" + id + ", ville=" + ville + ", annee=" + annee + ", saison=" + saison
+				+ ", epreuves=" + epreuves + "]";
 	}
+
 
 	/**Getter id
 	 * 
@@ -118,6 +128,22 @@ public class PaysOrganisateur {
 	 */
 	public void setSaison(Saison saison) {
 		this.saison = saison;
+	}
+
+	/**Getter epreuves
+	 * 
+	 * @return List<Epreuve> epreuves
+	 */
+	public List<Epreuve> getEpreuves() {
+		return epreuves;
+	}
+
+	/** Setter epreuves
+	 * 
+	 * @param epreuves the epreuves to set (type List<Epreuve>)
+	 */
+	public void setEpreuves(List<Epreuve> epreuves) {
+		this.epreuves = epreuves;
 	}
 	
 }

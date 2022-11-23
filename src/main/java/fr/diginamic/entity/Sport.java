@@ -33,11 +33,11 @@ public class Sport {
 	private String nom;
 	
 	/** épreuves */
-	@OneToMany(mappedBy = "Sport")
+	@OneToMany(mappedBy = "sport")
 	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
 	
 	/** traductionsSport */
-	@OneToMany(mappedBy = "Sport")
+	@OneToMany(mappedBy = "sport")
 	private List<TraductionSport> traductionsSport = new ArrayList<TraductionSport>();
 
 	/**Constructeur (utilisé par Hibernate)

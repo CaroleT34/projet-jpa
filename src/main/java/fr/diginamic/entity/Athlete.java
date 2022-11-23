@@ -48,7 +48,7 @@ public class Athlete {
 	private double poids;
 	
 	/** medailles */
-	@OneToMany(mappedBy = "Athlete")
+	@OneToMany(mappedBy = "athlete")
 	private List<Medaille> medailles = new ArrayList<Medaille>();
 	
 	/** Athlete_Equipe */

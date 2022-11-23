@@ -49,11 +49,11 @@ public class Epreuve {
 	private PaysOrganisateur paysOrganisateur;
 	
 	/** medailles */
-	@OneToMany(mappedBy = "Epreuve")
+	@OneToMany(mappedBy = "epreuve")
 	private List<Medaille> medailles = new ArrayList<Medaille>();
 	
 	/** traductionsEpreuves */
-	@OneToMany(mappedBy = "Epreuve")
+	@OneToMany(mappedBy = "epreuve")
 	private List<TraductionEpreuve> traductionsEpreuves = new ArrayList<TraductionEpreuve>();
 	
 	/** Epreuve_Athlete */

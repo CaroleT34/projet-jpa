@@ -38,12 +38,6 @@ public class Equipe {
 	@Column(name ="nom", length = 1000)
 	private String nom;
 	
-	@OneToMany(mappedBy = "Sport")
-	private List<Sport> sports = new ArrayList<Sport>();
-	
-	@OneToMany(mappedBy = "PaysOrganisateur")
-	private List<PaysOrganisateur> paysOrganisateurs = new ArrayList<PaysOrganisateur>();
-	
 	/** Epreuve_Athlete */
 	@ManyToMany
 	@JoinTable(name = "Epreuve_Athlete", joinColumns = @JoinColumn(name = "ID_EPREUVE", referencedColumnName = "ID"), inverseJoinColumns = @JoinColumn(name = "ID_ATHLETE", referencedColumnName = "ID"))
@@ -64,8 +58,7 @@ public class Equipe {
 
 	@Override
 	public String toString() {
-		return "Equipe [id=" + id + ", nom=" + nom + ", sports=" + sports + ", paysOrganisateurs=" + paysOrganisateurs
-				+ ", banniereOlympique=" + banniereOlympique + "]";
+		return "Equipe [id=" + id + ", nom=" + nom + ", banniereOlympique=" + banniereOlympique + "]";
 	}
 
 
@@ -100,38 +93,6 @@ public class Equipe {
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	/**Getter sports
-	 * 
-	 * @return List<Sport> sports
-	 */
-	public List<Sport> getSports() {
-		return sports;
-	}
-
-	/** Setter sports
-	 * 
-	 * @param sports the sports to set (type List<Sport>)
-	 */
-	public void setSports(List<Sport> sports) {
-		this.sports = sports;
-	}
-
-	/**Getter paysOrganisateurs
-	 * 
-	 * @return List<PaysOrganisateur> paysOrganisateurs
-	 */
-	public List<PaysOrganisateur> getPaysOrganisateurs() {
-		return paysOrganisateurs;
-	}
-
-	/** Setter paysOrganisateurs
-	 * 
-	 * @param paysOrganisateurs the paysOrganisateurs to set (type List<PaysOrganisateur>)
-	 */
-	public void setPaysOrganisateurs(List<PaysOrganisateur> paysOrganisateurs) {
-		this.paysOrganisateurs = paysOrganisateurs;
 	}
 
 	/**Getter athletes

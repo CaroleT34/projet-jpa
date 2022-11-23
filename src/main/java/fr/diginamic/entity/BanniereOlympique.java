@@ -34,11 +34,11 @@ public class BanniereOlympique {
 	private boolean statut;
 	
 	/** traductionsBO */
-	@OneToMany(mappedBy = "BanniereOlympique")
+	@OneToMany(mappedBy = "banniereOlympique")
 	private List<TraductionBO> traductionsBO = new ArrayList<TraductionBO>();
 	
 	/** Equipe */
-	@OneToMany(mappedBy = "BanniereOlympique")
+	@OneToMany(mappedBy = "banniereOlympique")
 	private List<Equipe> equipes = new ArrayList<Equipe>();
 	
 	
