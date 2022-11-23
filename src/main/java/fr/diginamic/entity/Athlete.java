@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +18,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import fr.diginamic.enumeration.Sexe;
 
 /**
  * Représente un athlète avec tous ses attributs
@@ -35,8 +39,9 @@ public class Athlete {
 	@Column(name ="nom", length = 500)
 	private String nom;
 	
-	@Column(name ="sexe", length = 10)
-	private String sexe;
+	@Column(name ="sexe")
+	@Enumerated(EnumType.STRING)
+	private Sexe sexe;
 	
 	@Column(name ="age", length = 3)
 	private int age;
@@ -111,17 +116,17 @@ public class Athlete {
 
 	/**Getter sexe
 	 * 
-	 * @return String sexe
+	 * @return Sexe sexe
 	 */
-	public String getSexe() {
+	public Sexe getSexe() {
 		return sexe;
 	}
 
 	/** Setter sexe
 	 * 
-	 * @param sexe the sexe to set (type String)
+	 * @param sexe the sexe to set (type Sexe)
 	 */
-	public void setSexe(String sexe) {
+	public void setSexe(Sexe sexe) {
 		this.sexe = sexe;
 	}
 

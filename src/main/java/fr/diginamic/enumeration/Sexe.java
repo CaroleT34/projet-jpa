@@ -1,19 +1,18 @@
 /**
- * Couleur.java
+ * Sexe.java
  */
 package fr.diginamic.enumeration;
 
 /**
- * Enumération des couleurs possibles (utilisé pour la classe médaille)
+ * Enumération identités sexuelles possibles (utilisé pour la classe athlète)
  * 
  * @author CaroleTOULORGE
  *
  */
-public enum Couleur {
+public enum Sexe {
 
-	OR("Or"), 
-	ARGENT("Argent"), 
-	BRONZE("Bronze");
+	FEMININ("Feminin"), 
+	MASCULIN("Masculin");
 
 	private String label;
 	
@@ -21,7 +20,7 @@ public enum Couleur {
 	 *
 	 * @param label 
 	 */
-	Couleur(String label) {
+	Sexe(String label) {
 		this.label = label;
 	}
 	/**Getter label
@@ -35,13 +34,11 @@ public enum Couleur {
 	/* Afficher la couleur */
 	public static String afficheCouleur(String label) {
 		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
-		if (label.equals("Or")) {
+		if (label.equals("Feminin")) {
 			return label;
-		} else if (label.equals("Argent")){
-			return label;
-		}else if (label.equals("Bronze")){
+		} else if (label.equals("Masculin")){
 			return label;
 		}
-		return "Couleur non conforme : " + label + " non attendu";
+		return "Identité sexuelle non conforme : " + label + " non attendu";
 	}
 }

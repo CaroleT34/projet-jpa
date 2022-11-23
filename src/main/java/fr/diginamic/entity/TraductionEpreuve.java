@@ -36,7 +36,7 @@ public class TraductionEpreuve {
 	/**Constructeur (utilisé par Hibernate)
 	 * 
 	 */
-	public TraductionEpreuve(String codeLangue, String traduction, Sport sport) {
+	public TraductionEpreuve() {
 		
 	}
 
