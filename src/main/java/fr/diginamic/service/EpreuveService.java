@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 
 import fr.diginamic.dao.EpreuveDao;
 import fr.diginamic.entity.Epreuve;
-import fr.diginamic.entity.Sport;
 
 /**
  *  Classe qui propose des services de traitement des épreuves
@@ -34,7 +33,7 @@ public class EpreuveService {
 	 * @param entite entité à insérer
 	 */
 	public void insertionEpreuve(Epreuve epreuve) {
-		Epreuve epreuveBase = epreuveDao.find(epreuve.getNom(), Sport.class);
+		Epreuve epreuveBase = epreuveDao.find(epreuve.getNom());
 		if (epreuveBase != null) {
 			return;
 		}

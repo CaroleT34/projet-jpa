@@ -1,15 +1,16 @@
 /**
  * Reader.java
  */
-package fr.diginamic;
+package fr.diginamic.reader;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.diginamic.FileUtils;
 import fr.diginamic.entity.Epreuve;
-import fr.diginamic.entity.TraductionEpreuve;
+import fr.diginamic.exception.ExceptionTech;
 
 /**
  * Classe qui extrait les epreuves du fichier CSV
@@ -17,12 +18,11 @@ import fr.diginamic.entity.TraductionEpreuve;
  * @author CaroleTOULORGE
  *
  */
-public class Reader {
+public class ReaderEpreuve {
 
 	/**
 	 * Retourne la liste des epreuves stockées dans le fichier CSV
 	 * @return
-	 * @throws Exception 
 	 */
 	public List<Epreuve> getEpreuves(InputStream is) throws Exception {
 
@@ -31,7 +31,7 @@ public class Reader {
 		try {
 			lignes = FileUtils.readFromInputStream(is);
 		} catch (IOException e) {
-			throw new Exception("Fichier " + is.toString() + " introuvable.");
+			throw new ExceptionTech("Fichier " + is.toString() + " introuvable.");
 		}
 
 		// On supprime la ligne d'entête
@@ -50,19 +50,15 @@ public class Reader {
 	 * @return Epreuve
 	 */
 	private Epreuve tranformeLigneEnEpreuve(String ligne) {
-		String[] morceaux = ligne.split("\\|", -1);
+		String[] morceaux = ligne.split(";", -1);
 
-		// System.out.println(nbMorceaux);
+		//System.out.println(ligne);
 
-		String nomEpreuve = morceaux[0];
-		String traductionEpreuve = morceaux[1];
+		String nomEpreuve = morceaux[1];
 
 		Epreuve epreuve = new Epreuve();
 		epreuve.setNom(nomEpreuve);
 		
-		TraductionEpreuve traductionEp = new TraductionEpreuve();
-		traductionEp.setTraduction(traductionEpreuve);
-
 		return epreuve;
 	}
 

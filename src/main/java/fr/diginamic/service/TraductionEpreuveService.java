@@ -5,10 +5,7 @@ package fr.diginamic.service;
 
 import javax.persistence.EntityManager;
 
-import fr.diginamic.dao.EpreuveDao;
 import fr.diginamic.dao.TraductionEpreuveDao;
-import fr.diginamic.entity.Epreuve;
-import fr.diginamic.entity.Sport;
 import fr.diginamic.entity.TraductionEpreuve;
 
 /**
@@ -26,7 +23,6 @@ public class TraductionEpreuveService {
 	 * @param em {@link EntityManager}
 	 */
 	public TraductionEpreuveService(EntityManager em) {
-		super();
 		this.traductionEpreuveDao = new TraductionEpreuveDao<TraductionEpreuve>(em);
 	}
 	
@@ -36,7 +32,7 @@ public class TraductionEpreuveService {
 	 * @param entite entité à insérer
 	 */
 	public void insertionTraductionEpreuve(TraductionEpreuve traductionEpreuve) {
-		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find(traductionEpreuve.getTraduction());
+		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find();
 		if (traductionEpreuveBase != null) {
 			return;
 		}

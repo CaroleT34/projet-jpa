@@ -5,12 +5,8 @@ package fr.diginamic;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.diginamic.entity.Epreuve;
-import fr.diginamic.recensement.entites.Recensement;
-import fr.diginamic.recensement.utils.RecensementUtils;
+import fr.diginamic.reader.ReaderEpreuve;
 
 /**
  * @author CaroleTOULORGE
@@ -19,7 +15,7 @@ import fr.diginamic.recensement.utils.RecensementUtils;
 public class IntegrationApp {
 
 	/** LOGGER */
-	private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationApp.class);
+	//private static final Logger LOGGER = LoggerFactory.getLogger(IntegrationApp.class);
 
 	/**
 	 * Point d'entrée
@@ -29,16 +25,26 @@ public class IntegrationApp {
 	public static void main(String[] args) {
 
 		// Lecture du fichier des traductions épreuves
-		Reader reader = new Reader();
-		List<Epreuve> epreuves = reader.getEpreuves(reader.getClass().getClassLoader().getResourceAsStream("liste_des_epreuves.csv"));
+		ReaderEpreuve readerEpreuve = new ReaderEpreuve();
+		List<Epreuve> epreuves = null;
+		//List<TraductionEpreuve> traductionEpreuves = null;
+		try {
+			epreuves = readerEpreuve.getEpreuves(readerEpreuve.getClass().getClassLoader().getResourceAsStream("liste_des_epreuves.csv"));
+			//traductionEpreuves = reader.getTraductionEpreuves(reader.getClass().getClassLoader().getResourceAsStream("liste_des_epreuves.csv"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		System.out.println(epreuves);
 		// Lecture du fichier athlete_epreuves
 		EpreuveManager epreuveManager = new EpreuveManager();
+		//TraductionEpreuveManager traductionEpreuveManager = new TraductionEpreuveManager();
 		
 		// Lecture du fichier ..
 		for (int i = 1; i < epreuves.size(); i++) {
 			epreuveManager.traiteEpreuve(epreuves.get(i));
-		
+			//traductionEpreuveManager.traiteTraductionEpreuve(traductionEpreuves.get(i));
 		}
 		
 		// Fermeture des ressources (connexion)

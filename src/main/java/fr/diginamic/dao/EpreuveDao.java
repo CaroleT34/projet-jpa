@@ -6,10 +6,9 @@ package fr.diginamic.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 
 import fr.diginamic.entity.Epreuve;
-import fr.diginamic.entity.Sport;
 
 /**
  * @author CaroleTOULORGE
@@ -17,8 +16,6 @@ import fr.diginamic.entity.Sport;
  */
 public class EpreuveDao<E extends Epreuve> extends AbstractDao {
 
-	/** Classe de l'entité */
-	protected Class<E> classe;
 	
 	/**Constructeur
 	 *
@@ -26,7 +23,6 @@ public class EpreuveDao<E extends Epreuve> extends AbstractDao {
 	 */
 	public EpreuveDao(EntityManager em) {
 		super(em);
-		this.classe = classe;
 	}
 	
 	/**
@@ -36,11 +32,11 @@ public class EpreuveDao<E extends Epreuve> extends AbstractDao {
 	 * @param class1 sport
 	 * @return {@link Epreuve}
 	 */
-	public Epreuve find(String nom, Class<Sport> class1) {
-		TypedQuery<E> query = em.createQuery("FROM Epreuve WHERE nom=:nom AND sport=:sport", classe);
+	public Epreuve find(String nom) {
+		Query query = em.createQuery("FROM Epreuve WHERE nom=:nom");
 		query.setParameter("nom", nom);
-		query.setParameter("sport", class1);
 
+		@SuppressWarnings("unchecked")
 		List<E> results = query.getResultList();
 		if (results.isEmpty()) {
 			return null;
