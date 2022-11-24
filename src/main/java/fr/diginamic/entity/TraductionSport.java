@@ -5,6 +5,8 @@ package fr.diginamic.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,8 +24,9 @@ import javax.persistence.Table;
 public class TraductionSport {
 
 	@Id
-	@Column(name ="codeLangue", length = 10, nullable = false)
-	private String codeLangue;
+	//@Column(name ="codeLangue", length = 10, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codeLangue;
 	
 	@Column(name ="traduction", length = 500)
 	private String traduction;
@@ -39,6 +42,23 @@ public class TraductionSport {
 	public TraductionSport() {
 		
 	}
+	
+	
+
+	/**Constructeur
+	 *
+	 * @param codeLangue
+	 * @param traduction
+	 * @param sport
+	 */
+	public TraductionSport(int codeLangue, String traduction, Sport sport) {
+		super();
+		this.codeLangue = codeLangue;
+		this.traduction = traduction;
+		this.sport = sport;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -49,7 +69,7 @@ public class TraductionSport {
 	 * 
 	 * @return String codeLangue
 	 */
-	public String getCodeLangue() {
+	public int getCodeLangue() {
 		return codeLangue;
 	}
 
@@ -57,7 +77,7 @@ public class TraductionSport {
 	 * 
 	 * @param codeLangue the codeLangue to set (type String)
 	 */
-	public void setCodeLangue(String codeLangue) {
+	public void setCodeLangue(int codeLangue) {
 		this.codeLangue = codeLangue;
 	}
 

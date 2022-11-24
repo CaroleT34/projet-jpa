@@ -46,8 +46,6 @@ public class TraductionEpreuveManager {
 	 */
 	public void traiteTraductionEpreuve(TraductionEpreuve traductionEpreuve) {
 
-		//LOGGER.debug("TraductionEpreuve" + traductionEpreuve.getTraduction());
-
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 
@@ -61,14 +59,6 @@ public class TraductionEpreuveManager {
 	 */
 	public void close() {
 		em.close();
-	}
-
-	/**
-	 * @param epreuve
-	 */
-	public void traiteTraductionEpreuve() {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	

@@ -8,34 +8,34 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import fr.diginamic.entity.Epreuve;
-import fr.diginamic.entity.TraductionEpreuve;
+import fr.diginamic.entity.Sport;
+import fr.diginamic.entity.TraductionSport;
 
 /**
  * @author CaroleTOULORGE
  *
  */
-public class TraductionEpreuveDao<S extends TraductionEpreuve> extends AbstractDao {
+public class TraductionSportDao<S extends TraductionSport> extends AbstractDao {
 
 	/**Constructeur
 	 *
 	 * @param em
 	 */
-	public TraductionEpreuveDao(EntityManager em) {
+	public TraductionSportDao(EntityManager em) {
 		super(em);
 	}
 	
 	/**
-	 * Recherche une traduction d'une épreuve en fonction de son cioCode
+	 * Recherche une traduction d'un Sport 
 	 * 
-	 * @param cioCode 
-	 * @return {@link TraudctionEpreuve}
+	 * @return {@link TraductionSport}
 	 */
-	public TraductionEpreuve find(Epreuve epreuve) {
-		Query query = em.createQuery("FROM TraductionEpreuve WHERE id_epreuve=:id_epreuve");
-		query.setParameter("id_epreuve", epreuve);
+	public TraductionSport find(Sport sport) {
+		//si sport null
+		
+		Query query = em.createQuery("FROM TraductionSport WHERE id_sport=:id_sport");
+		query.setParameter("id_sport", sport);
 
-		//System.out.println(epreuve);
 		
 		@SuppressWarnings("unchecked")
 		List<S> results = query.getResultList();

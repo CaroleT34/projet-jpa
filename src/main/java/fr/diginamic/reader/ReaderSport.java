@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.diginamic.FileUtils;
-import fr.diginamic.entity.Epreuve;
+import fr.diginamic.entity.Sport;
 import fr.diginamic.exception.ExceptionTech;
 
 /**
- * Classe qui extrait les epreuves du fichier CSV
+ * Classe qui extrait les sports du fichier CSV
  * 
  * @author CaroleTOULORGE
  *
  */
-public class ReaderEpreuve {
+public class ReaderSport {
 
 	/**
-	 * Retourne la liste des epreuves stockées dans le fichier CSV
+	 * Retourne la liste des sports stockées dans le fichier CSV
 	 * @return
 	 */
-	public List<Epreuve> getEpreuves(InputStream is) throws Exception {
+	public List<Sport> getSports(InputStream is) throws Exception {
 
 		// Lecture du fichier CSV
 		List<String> lignes = null;
@@ -38,30 +38,28 @@ public class ReaderEpreuve {
 		lignes.remove(0);
 
 		// On traite toutes les lignes 1 par 1
-		ArrayList<Epreuve> epreuves = new ArrayList<>();
-		lignes.forEach(ligne -> epreuves.add(tranformeLigneEnEpreuve(ligne)));
-		return epreuves;
+		ArrayList<Sport> sports = new ArrayList<>();
+		lignes.forEach(ligne -> sports.add(tranformeLigneEnSport(ligne)));
+		return sports;
 	}
 
 	/**
-	 * Transforme une ligne du fichier en un Epreuve
+	 * Transforme une ligne du fichier en un Sport
 	 * 
 	 * @param ligne ligne
-	 * @return Epreuve
+	 * @return Sport
 	 */
-	private Epreuve tranformeLigneEnEpreuve(String ligne) {
+	private Sport tranformeLigneEnSport(String ligne) {
 		String[] morceaux = ligne.split(";", -1);
 
 		//System.out.println(ligne);
 
-		String nomEpreuve = morceaux[1];
+		String nomSport = morceaux[1];
 
-		Epreuve epreuve = new Epreuve();
-		epreuve.setNom(nomEpreuve);
+		Sport sport = new Sport();
+		sport.setNom(nomSport);
 		
-		return epreuve;
+		return sport;
 	}
-	
-	
 
 }

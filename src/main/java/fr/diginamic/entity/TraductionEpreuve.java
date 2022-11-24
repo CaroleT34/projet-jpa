@@ -43,6 +43,22 @@ public class TraductionEpreuve {
 	public TraductionEpreuve() {
 		
 	}
+	
+
+	/**Constructeur
+	 *
+	 * @param codeLangue
+	 * @param traduction
+	 * @param epreuve
+	 */
+	public TraductionEpreuve(int codeLangue, String traduction, Epreuve epreuve) {
+		super();
+		this.codeLangue = codeLangue;
+		this.traduction = traduction;
+		this.epreuve = epreuve;
+	}
+
+
 
 	@Override
 	public String toString() {

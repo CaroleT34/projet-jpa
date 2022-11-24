@@ -8,35 +8,35 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import fr.diginamic.entity.Epreuve;
+import fr.diginamic.entity.Sport;
 
 /**
  * @author CaroleTOULORGE
  *
  */
-public class EpreuveDao<E extends Epreuve> extends AbstractDao {
+public class SportDao<S extends Sport> extends AbstractDao {
 
 	
 	/**Constructeur
 	 *
 	 * @param em
 	 */
-	public EpreuveDao(EntityManager em) {
+	public SportDao(EntityManager em) {
 		super(em);
 	}
 	
 	/**
-	 * Recherche une epreuve en fonction de son nom et pour un sport donné
+	 * Recherche un Sport en fonction de son nom et pour un sport donné
 	 * 
-	 * @param nom de l'épreuve
-	 * @return {@link Epreuve}
+	 * @param nom Sport
+	 * @return {@link Sport}
 	 */
-	public Epreuve find(String nom) {
-		Query query = em.createQuery("FROM Epreuve WHERE nom=:nom");
+	public Sport find(String nom) {
+		Query query = em.createQuery("FROM Sport WHERE nom=:nom");
 		query.setParameter("nom", nom);
 
 		@SuppressWarnings("unchecked")
-		List<E> results = query.getResultList();
+		List<S> results = query.getResultList();
 		if (results.isEmpty()) {
 			return null;
 		}
@@ -49,7 +49,7 @@ public class EpreuveDao<E extends Epreuve> extends AbstractDao {
 	 * 
 	 * @param entite entité
 	 */
-	public void insert(E entite) {
+	public void insert(S entite) {
 		em.persist(entite);
 	}
 }

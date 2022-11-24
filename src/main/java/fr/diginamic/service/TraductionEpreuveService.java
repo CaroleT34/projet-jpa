@@ -33,9 +33,13 @@ public class TraductionEpreuveService {
 	 */
 	public void insertionTraductionEpreuve(TraductionEpreuve traductionEpreuve) {
 		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find(traductionEpreuve.getEpreuve());
+		//System.out.println(traductionEpreuveDao);
+		
 		if (traductionEpreuveBase != null) {
 			return;
+			
 		}
+		
 		traductionEpreuveDao.insert(traductionEpreuve);
 	}
 	
