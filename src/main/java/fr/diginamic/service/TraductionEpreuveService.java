@@ -32,7 +32,7 @@ public class TraductionEpreuveService {
 	 * @param entite entité à insérer
 	 */
 	public void insertionTraductionEpreuve(TraductionEpreuve traductionEpreuve) {
-		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find();
+		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find(traductionEpreuve.getEpreuve());
 		if (traductionEpreuveBase != null) {
 			return;
 		}

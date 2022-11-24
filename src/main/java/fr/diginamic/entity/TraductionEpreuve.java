@@ -5,6 +5,8 @@ package fr.diginamic.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,8 +24,10 @@ import javax.persistence.Table;
 public class TraductionEpreuve {
 	
 	@Id
-	@Column(name ="codeLangue", length = 10, nullable = false)
-	private String codeLangue;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codeLangue;
+	//@Column(name ="codeLangue", length = 10)
+	//private String codeLangue;
 	
 	@Column(name ="traduction", length = 500)
 	private String traduction;
@@ -49,17 +53,17 @@ public class TraductionEpreuve {
 
 	/**Getter codeLangue
 	 * 
-	 * @return String codeLangue
+	 * @return int codeLangue
 	 */
-	public String getCodeLangue() {
+	public int getCodeLangue() {
 		return codeLangue;
 	}
 
 	/** Setter codeLangue
 	 * 
-	 * @param codeLangue the codeLangue to set (type String)
+	 * @param codeLangue the codeLangue to set (type int)
 	 */
-	public void setCodeLangue(String codeLangue) {
+	public void setCodeLangue(int codeLangue) {
 		this.codeLangue = codeLangue;
 	}
 
