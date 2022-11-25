@@ -8,7 +8,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import fr.diginamic.entity.Sport;
 import fr.diginamic.entity.TraductionSport;
 
 /**
@@ -30,11 +29,11 @@ public class TraductionSportDao<S extends TraductionSport> extends AbstractDao {
 	 * 
 	 * @return {@link TraductionSport}
 	 */
-	public TraductionSport find(Sport sport) {
+	public TraductionSport find(String traduction) {
 		//si sport null
 		
-		Query query = em.createQuery("FROM TraductionSport WHERE id_sport=:id_sport");
-		query.setParameter("id_sport", sport);
+		Query query = em.createQuery("FROM TraductionSport WHERE traduction=:traduction");
+		query.setParameter("traduction", traduction);
 
 		
 		@SuppressWarnings("unchecked")

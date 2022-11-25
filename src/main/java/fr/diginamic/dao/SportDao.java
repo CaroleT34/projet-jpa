@@ -43,6 +43,26 @@ public class SportDao<S extends Sport> extends AbstractDao {
 
 		return results.get(0);
 	}
+	
+	/**
+	 * Recherche l'id en fonction du sport 
+	 * 
+	 * @param sport Sport
+	 * @return {@link Sport}
+	 */
+	public Sport findbyNom(Sport sport) {
+		Query query = em.createQuery("FROM Sport WHERE nom=:nom");
+		query.setParameter("nom", sport.getNom());
+		//query.setParameter("id", sport.getId());
+
+		@SuppressWarnings("unchecked")
+		List<S> results = query.getResultList();
+		if (results.isEmpty()) {
+			return null;
+		}
+
+		return results.get(0);
+	}
 
 	/**
 	 * Insère une nouvelle entité en base de données

@@ -51,19 +51,17 @@ public class TraductionEpreuve {
 	 * @param traduction
 	 * @param epreuve
 	 */
-	public TraductionEpreuve(int codeLangue, String traduction, Epreuve epreuve) {
+	public TraductionEpreuve(int codeLangue, String traduction) {
 		super();
 		this.codeLangue = codeLangue;
 		this.traduction = traduction;
-		this.epreuve = epreuve;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "TraductionEpreuve [codeLangue=" + codeLangue + ", traduction=" + traduction + ", epreuve=" + epreuve
-				+ "]";
+		return "TraductionEpreuve [codeLangue=" + codeLangue + ", traduction=" + traduction + "]";
 	}
 
 

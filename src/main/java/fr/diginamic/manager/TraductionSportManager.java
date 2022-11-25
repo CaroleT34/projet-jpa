@@ -1,54 +1,54 @@
 /**
  * EpreuveManager.java
  */
-package fr.diginamic;
+package fr.diginamic.manager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import fr.diginamic.entity.Sport;
-import fr.diginamic.service.SportService;
+import fr.diginamic.entity.TraductionSport;
+import fr.diginamic.service.TraductionSportService;
 
 /**
- * Classe qui prend en charge la totalité du traitement d'un sport
+ * Classe qui prend en charge la totalité du traitement de la TraductionSport
  * 
  * @author CaroleTOULORGE
  *
  */
-public class SportManager {
+public class TraductionSportManager {
 	
 	/** EntityManager Hibernate */
 	private EntityManager em;
 	/** epreuveService */
-	private SportService sportService;
+	private TraductionSportService traductionSportService;
 
 
 	/**
 	 * Constructeur
 	 * 
 	 */
-	public SportManager() {
+	public TraductionSportManager() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JO");
 		em = entityManagerFactory.createEntityManager();
 
-		sportService = new SportService(em);
+		traductionSportService = new TraductionSportService(em);
 		
 	}
 
 	/**
-	 * Traite un produit: gère la totalité de la persistance de l'épreuve et de toutes
+	 * Traite un produit: gère la totalité de la persistance de TraductionSport et de toutes
 	 * ses données associées
 	 * 
-	 * @param epreuve à insérer en base de données.
+	 * @param TraductionSport à insérer en base de données.
 	 */
-	public void traiteSport(Sport sport) {
+	public void traiteTraductionSport(TraductionSport traductionSport) {
 
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 
-		sportService.insertionSport(sport);
+		traductionSportService.insertionTraductionSport(traductionSport);
 
 		transaction.commit();
 	}

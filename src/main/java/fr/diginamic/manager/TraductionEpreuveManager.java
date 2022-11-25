@@ -1,7 +1,7 @@
 /**
  * TraductionEpreuveManager.java
  */
-package fr.diginamic;
+package fr.diginamic.manager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

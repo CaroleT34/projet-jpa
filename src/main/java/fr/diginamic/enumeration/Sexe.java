@@ -11,8 +11,8 @@ package fr.diginamic.enumeration;
  */
 public enum Sexe {
 
-	FEMININ("Feminin"), 
-	MASCULIN("Masculin");
+	F("F"), 
+	M("M");
 
 	private String label;
 	
@@ -31,12 +31,12 @@ public enum Sexe {
 		return label;
 	}
 	
-	/* Afficher la couleur */
-	public static String afficheCouleur(String label) {
+	/* Afficher sexe */
+	public static String afficheSexe(String label) {
 		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
-		if (label.equals("Feminin")) {
+		if (label.equals("F")) {
 			return label;
-		} else if (label.equals("Masculin")){
+		} else if (label.equals("M")){
 			return label;
 		}
 		return "Identité sexuelle non conforme : " + label + " non attendu";

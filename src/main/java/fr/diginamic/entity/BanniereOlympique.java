@@ -6,8 +6,11 @@ package fr.diginamic.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,6 +27,9 @@ import javax.persistence.Table;
 public class BanniereOlympique {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
 	@Column(name ="cioCode", length = 10, nullable = false)
 	private String cioCode;
 	
@@ -34,7 +40,7 @@ public class BanniereOlympique {
 	private boolean statut;
 	
 	/** traductionsBO */
-	@OneToMany(mappedBy = "banniereOlympique")
+	@OneToMany(mappedBy = "banniereOlympique",  orphanRemoval = true, cascade = {CascadeType.ALL})
 	private List<TraductionBO> traductionsBO = new ArrayList<TraductionBO>();
 	
 	/** Equipe */
@@ -48,13 +54,52 @@ public class BanniereOlympique {
 	public BanniereOlympique() {
 		
 	}
-	
-	@Override
-	public String toString() {
-		return "BanniereOlympique [cioCode=" + cioCode + ", nom=" + nom + ", statut=" + statut + ", traductionsBO="
-				+ traductionsBO + ", equipes=" + equipes + "]";
+
+	/**Constructeur
+	 *
+	 * @param id
+	 * @param cioCode
+	 * @param nom
+	 * @param statut
+	 * @param traductionsBO
+	 * @param equipes
+	 */
+	public BanniereOlympique(int id, String cioCode, String nom, boolean statut, List<TraductionBO> traductionsBO,
+			List<Equipe> equipes) {
+		super();
+		this.id = id;
+		this.cioCode = cioCode;
+		this.nom = nom;
+		this.statut = statut;
+		this.traductionsBO = traductionsBO;
+		this.equipes = equipes;
 	}
 
+
+
+
+	@Override
+	public String toString() {
+		return "BanniereOlympique [id=" + id + ", cioCode=" + cioCode + ", nom=" + nom + ", statut=" + statut
+				+ ", traductionsBO=" + traductionsBO + ", equipes=" + equipes + "]";
+	}
+
+	/**Getter id
+	 * 
+	 * @return int id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/** Setter id
+	 * 
+	 * @param id the id to set (type int)
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	/**Getter cioCode
 	 * 
 	 * @return String cioCode

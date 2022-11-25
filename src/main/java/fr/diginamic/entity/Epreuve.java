@@ -67,6 +67,41 @@ public class Epreuve {
 	public Epreuve() {
 		
 	}
+	
+	
+
+	/**Constructeur
+	 *
+	 * @param nom
+	 */
+	public Epreuve(String nom) {
+		super();
+		this.nom = nom;
+	}
+
+	/**Constructeur
+	 *
+	 * @param id
+	 * @param nom
+	 * @param sport
+	 * @param paysOrganisateur
+	 * @param medailles
+	 * @param traductionsEpreuves
+	 * @param athletes
+	 */
+	public Epreuve(int id, String nom, Sport sport, PaysOrganisateur paysOrganisateur, List<Medaille> medailles,
+			List<TraductionEpreuve> traductionsEpreuves, Set<Athlete> athletes) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.sport = sport;
+		this.paysOrganisateur = paysOrganisateur;
+		this.medailles = medailles;
+		this.traductionsEpreuves = traductionsEpreuves;
+		this.athletes = athletes;
+	}
+
+
 
 	@Override
 	public String toString() {

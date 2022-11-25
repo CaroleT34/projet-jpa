@@ -6,6 +6,7 @@ package fr.diginamic.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Sport {
 	private String nom;
 	
 	/** épreuves */
-	@OneToMany(mappedBy = "sport")
+	@OneToMany(mappedBy = "sport",  orphanRemoval = true, cascade = {CascadeType.ALL})
 	private List<Epreuve> epreuves = new ArrayList<Epreuve>();
 	
 	/** traductionsSport */
@@ -46,6 +47,39 @@ public class Sport {
 	public Sport() {
 		
 	}
+
+	
+	/**Constructeur
+	 *
+	 * @param id
+	 * @param nom
+	 * @param epreuves
+	 * @param traductionsSport
+	 */
+	public Sport(int id, String nom, List<Epreuve> epreuves, List<TraductionSport> traductionsSport) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.epreuves = epreuves;
+		this.traductionsSport = traductionsSport;
+	}
+
+
+	/**Constructeur
+	 *
+	 * @param nom
+	 */
+	public Sport(String nom) {
+		super();
+		this.nom = nom;
+	}
+
+	@Override
+	public String toString() {
+		return "Sport [id=" + id + ", nom=" + nom + ", epreuves=" + epreuves + ", traductionsSport=" + traductionsSport
+				+ "]";
+	}
+
 
 	/**Getter id
 	 * 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.diginamic.FileUtils;
+import fr.diginamic.entity.Epreuve;
 import fr.diginamic.entity.TraductionEpreuve;
 import fr.diginamic.exception.ExceptionTech;
 
@@ -56,10 +57,14 @@ public class ReaderTraductionEpreuve {
 		// System.out.println(ligne);
 
 		String traductionEpreuve = morceaux[0];
-
+		String nomEpreuve  = morceaux[1];
+		//System.out.println("nomEpreuve : " + nomEpreuve);
 		TraductionEpreuve traductionEp = new TraductionEpreuve();
 		traductionEp.setTraduction(traductionEpreuve);
-
+		
+		Epreuve epreuve = new Epreuve(nomEpreuve);
+		traductionEp.setEpreuve(epreuve);
+		
 		return traductionEp;
 	}
 

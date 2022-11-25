@@ -1,59 +1,54 @@
 /**
  * EpreuveManager.java
  */
-package fr.diginamic;
+package fr.diginamic.manager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import fr.diginamic.entity.Epreuve;
-import fr.diginamic.service.EpreuveService;
+import fr.diginamic.entity.Athlete;
+import fr.diginamic.service.AthleteService;
 
 /**
- * Classe qui prend en charge la totalité du traitement d'une épreuve
+ * Classe qui prend en charge la totalité du traitement d'un Athlete
  * 
  * @author CaroleTOULORGE
  *
  */
-public class EpreuveManager {
-	
-	/** LOGGER */
-	//private static final Logger LOGGER = LoggerFactory.getLogger(EpreuveManager.class);
+public class AthleteManager {
 
 	/** EntityManager Hibernate */
 	private EntityManager em;
 	/** epreuveService */
-	private EpreuveService epreuveService;
+	private AthleteService athleteService;
 
 
 	/**
 	 * Constructeur
 	 * 
 	 */
-	public EpreuveManager() {
+	public AthleteManager() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JO");
 		em = entityManagerFactory.createEntityManager();
 
-		epreuveService = new EpreuveService(em);
+		athleteService = new AthleteService(em);
 		
 	}
 
 	/**
-	 * Traite un produit: gère la totalité de la persistance de l'épreuve et de toutes
+	 * Traite un produit: gère la totalité de la persistance de Athlete et de toutes
 	 * ses données associées
 	 * 
-	 * @param epreuve à insérer en base de données.
+	 * @param Athlete à insérer en base de données.
 	 */
-	public void traiteEpreuve(Epreuve epreuve) {
-
-		//LOGGER.debug("Epreuve" + epreuve.getNom());
+	public void traiteAthlete(Athlete athlete) {
 
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 
-		epreuveService.insertionEpreuve(epreuve);
+		athleteService.insertionAthlete(athlete);
 
 		transaction.commit();
 	}

@@ -8,7 +8,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import fr.diginamic.entity.Epreuve;
 import fr.diginamic.entity.TraductionEpreuve;
 
 /**
@@ -26,14 +25,14 @@ public class TraductionEpreuveDao<S extends TraductionEpreuve> extends AbstractD
 	}
 	
 	/**
-	 * Recherche une traduction d'une épreuve en fonction de son cioCode
+	 * Recherche une traduction d'une épreuve en fonction de sa traduction
 	 * 
 	 * @param cioCode 
 	 * @return {@link TraudctionEpreuve}
 	 */
-	public TraductionEpreuve find(Epreuve epreuve) {
-		Query query = em.createQuery("FROM TraductionEpreuve WHERE id_epreuve=:id_epreuve");
-		query.setParameter("id_epreuve", epreuve);
+	public TraductionEpreuve find(String traduction) {
+		Query query = em.createQuery("FROM TraductionEpreuve WHERE traduction=:traduction");
+		query.setParameter("traduction", traduction);
 
 		//System.out.println(epreuve);
 		
