@@ -40,7 +40,7 @@ public class TraductionEpreuveService {
 	public void insertionTraductionEpreuve(TraductionEpreuve traductionEpreuve) {
 		TraductionEpreuve traductionEpreuveBase = traductionEpreuveDao.find(traductionEpreuve.getTraduction());
 		Epreuve epreuveBase = epreuveDao.findbyNom(traductionEpreuve.getEpreuve()) ;
-		System.out.println("epreuveBase : " + epreuveBase);
+		//System.out.println("epreuveBase : " + epreuveBase);
 		if (traductionEpreuveBase != null) {
 			return;
 			

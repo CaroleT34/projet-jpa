@@ -33,8 +33,8 @@ public class SportService {
 	 * @param entite entité à insérer
 	 */
 	public void insertionSport(Sport sport) {
-		Sport epreuveBase = sportDao.find(sport.getNom());
-		if (epreuveBase != null) {
+		Sport sportBase = sportDao.find(sport.getNom());
+		if (sportBase != null) {
 			return;
 		}
 		sportDao.insert(sport);

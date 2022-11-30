@@ -15,7 +15,7 @@ import fr.diginamic.entity.Athlete;
  */
 public class AthleteService {
 
-	/** epreuveDao */
+	/** athleteDao */
 	private AthleteDao<Athlete> athleteDao;
 
 	/**

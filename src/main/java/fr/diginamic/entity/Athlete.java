@@ -74,11 +74,46 @@ public class Athlete {
 		
 	}
 
+	/**Constructeur
+	 *
+	 * @param nomAthlete
+	 */
+	public Athlete(String nom) {
+		this.nom = nom;
+	}
+	
+	
+
+	/**Constructeur
+	 *
+	 * @param id
+	 * @param nom
+	 * @param sexe
+	 * @param age
+	 * @param taille
+	 * @param poids
+	 * @param medailles
+	 * @param equipes
+	 * @param epreuves
+	 */
+	public Athlete(int id, String nom, Sexe sexe, int age, double taille, double poids, List<Medaille> medailles,
+			List<Equipe> equipes, List<Epreuve> epreuves) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.sexe = sexe;
+		this.age = age;
+		this.taille = taille;
+		this.poids = poids;
+		this.medailles = medailles;
+		this.equipes = equipes;
+		this.epreuves = epreuves;
+	}
+
 	@Override
 	public String toString() {
 		return "Athlete [id=" + id + ", nom=" + nom + ", sexe=" + sexe + ", age=" + age + ", taille=" + taille
-				+ ", poids=" + poids + ", medailles=" + medailles + ", equipes=" + equipes + ", epreuves=" + epreuves
-				+ "]";
+				+ ", poids=" + poids + "]";
 	}
 
 

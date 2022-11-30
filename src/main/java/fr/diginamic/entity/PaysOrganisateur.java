@@ -57,6 +57,41 @@ public class PaysOrganisateur {
 	public PaysOrganisateur() {
 		
 	}
+	
+	/**Constructeur
+	 *
+	 * @param ville
+	 * @param annee
+	 * @param saison
+	 */
+	public PaysOrganisateur(String ville, Date annee, Saison saison) {
+		super();
+		this.ville = ville;
+		this.annee = annee;
+		this.saison = saison;
+	}
+
+
+
+
+	/**Constructeur
+	 *
+	 * @param id
+	 * @param ville
+	 * @param annee
+	 * @param saison
+	 * @param epreuves
+	 */
+	public PaysOrganisateur(int id, String ville, Date annee, Saison saison, List<Epreuve> epreuves) {
+		super();
+		this.id = id;
+		this.ville = ville;
+		this.annee = annee;
+		this.saison = saison;
+		this.epreuves = epreuves;
+	}
+
+
 
 
 	@Override

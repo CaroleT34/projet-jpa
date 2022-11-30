@@ -26,7 +26,7 @@ public class ConnexionJPA {
 		//Test
 		Athlete athlete = new Athlete();
 		athlete.setNom("Georges W");
-		athlete.setSexe(Sexe.MASCULIN);
+		athlete.setSexe(Sexe.M);
 		athlete.setAge(23);
 		athlete.setTaille(1.83);
 		athlete.setPoids(56);

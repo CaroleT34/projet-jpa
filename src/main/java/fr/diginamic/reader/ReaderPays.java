@@ -61,10 +61,6 @@ public class ReaderPays {
 		
 
 		BanniereOlympique banniereOlympique = new BanniereOlympique();
-//		int cioCodeInt = 0;
-//		if (NumberUtils.isDigits(cioCode)) {
-//			cioCodeInt = Integer.parseInt(cioCode);
-//		}
 		banniereOlympique.setCioCode(cioCode);
 		banniereOlympique.setNom(nomBO);
 		
@@ -79,30 +75,30 @@ public class ReaderPays {
 		return banniereOlympique;
 	}
 	
-	/**
-	 * Transforme une ligne du fichier en BanniereOlympique
-	 * 
-	 * @param ligne ligne
-	 * @return BanniereOlympique
-	 */
-	@SuppressWarnings("unused")
-	private TraductionBO tranformeLigneEnTraductionBanniereOlympiques(String ligne) {
-		String[] morceaux = ligne.split(";", -1);
-
-		//System.out.println(ligne);
-
-		String nomBO = morceaux[2];
-		//String id_bo = morceaux[0];
-		
-		BanniereOlympique banniereOlympique = new BanniereOlympique();
-		//banniereOlympique.setCioCode(id_bo);
-
-		TraductionBO traductionBO = new TraductionBO();
-		traductionBO.setTraduction(nomBO);
-		traductionBO.setBanniereOlympique(banniereOlympique);
-		
-		return traductionBO;
-	}
+//	/**
+//	 * Transforme une ligne du fichier en BanniereOlympique
+//	 * 
+//	 * @param ligne ligne
+//	 * @return BanniereOlympique
+//	 */
+//	@SuppressWarnings("unused")
+//	private TraductionBO tranformeLigneEnTraductionBanniereOlympiques(String ligne) {
+//		String[] morceaux = ligne.split(";", -1);
+//
+//		//System.out.println(ligne);
+//
+//		String nomBO = morceaux[2];
+//		//String id_bo = morceaux[0];
+//		
+//		BanniereOlympique banniereOlympique = new BanniereOlympique();
+//		//banniereOlympique.setCioCode(id_bo);
+//
+//		TraductionBO traductionBO = new TraductionBO();
+//		traductionBO.setTraduction(nomBO);
+//		traductionBO.setBanniereOlympique(banniereOlympique);
+//		
+//		return traductionBO;
+//	}
 	
 
 }

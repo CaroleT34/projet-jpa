@@ -8,10 +8,8 @@ package fr.diginamic.enumeration;
  */
 public enum Saison {
 
-	Hiver("Hiver"),
-	Printemps("Printemps"),
-	Ete("Ete"),
-	Automne("Automne");
+	Winter("Winter"),
+	Summer("Summer");
 	
 	private String label;
 	
@@ -19,7 +17,7 @@ public enum Saison {
 	 *
 	 * @param label 
 	 */
-	private Saison(String label) {
+	Saison(String label) {
 		this.label = label;
 	}
 	
@@ -32,19 +30,15 @@ public enum Saison {
 	}
 	
 	/* Afficher la saison */
-	public static String afficheSaison(String label) {
-		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
-		if (label.equals("Hiver")) {
-			return label;
-		} else if (label.equals("Printemps")){
-			return label;
-		}else if (label.equals("Ete")){
-			return label;
-		}else if (label.equals("Automne")){
-			return label;
-		}
-		return "Saison non conforme : " + label + " non attendu";
-	}
+//	public static String afficheSaison(String label) {
+//		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
+//		if (label.equals("Winter")) {
+//			return label;
+//		} else if (label.equals("Summer")){
+//			return label;
+//		}
+//		return "Saison non conforme : " + label + " non attendu";
+//	}
 	
 
 	

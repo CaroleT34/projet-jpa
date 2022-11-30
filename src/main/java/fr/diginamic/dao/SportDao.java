@@ -53,7 +53,6 @@ public class SportDao<S extends Sport> extends AbstractDao {
 	public Sport findbyNom(Sport sport) {
 		Query query = em.createQuery("FROM Sport WHERE nom=:nom");
 		query.setParameter("nom", sport.getNom());
-		//query.setParameter("id", sport.getId());
 
 		@SuppressWarnings("unchecked")
 		List<S> results = query.getResultList();

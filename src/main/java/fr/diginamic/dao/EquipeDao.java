@@ -8,31 +8,31 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import fr.diginamic.entity.Epreuve;
+import fr.diginamic.entity.Equipe;
 
 /**
  * @author CaroleTOULORGE
  *
  */
-public class EpreuveDao<E extends Epreuve> extends AbstractDao {
+public class EquipeDao<E extends Equipe> extends AbstractDao {
 
 	
 	/**Constructeur
 	 *
 	 * @param em
 	 */
-	public EpreuveDao(EntityManager em) {
+	public EquipeDao(EntityManager em) {
 		super(em);
 	}
 	
 	/**
-	 * Recherche une epreuve en fonction de son nom
+	 * Recherche une Equipe en fonction de son nom
 	 * 
-	 * @param nom de l'épreuve
-	 * @return {@link Epreuve}
+	 * @param nom de Equipe
+	 * @return {@link Equipe}
 	 */
-	public Epreuve find(String nom) {
-		Query query = em.createQuery("FROM Epreuve WHERE nom=:nom");
+	public Equipe find(String nom) {
+		Query query = em.createQuery("FROM Equipe WHERE nom=:nom");
 		query.setParameter("nom", nom);
 
 		@SuppressWarnings("unchecked")
@@ -45,17 +45,17 @@ public class EpreuveDao<E extends Epreuve> extends AbstractDao {
 	}
 	
 	/**
-	 * Recherche l'epreuve en fonction du epreuve 
+	 * Recherche l'epreuve en fonction d'une equipe
 	 * 
-	 * @param epreuve Epreuve
-	 * @return {@link Epreuve}
+	 * @param equipe Equipe
+	 * @return {@link Equipe}
 	 */
-	public Epreuve findbyNom(Epreuve epreuve) {
-		Query query = em.createQuery("FROM Epreuve WHERE nom=:nom");
-		query.setParameter("nom", epreuve.getNom());
+	public Equipe findbyNom(E entite) {
+		Query query = em.createQuery("FROM Equipe WHERE nom=:nom");
+		query.setParameter("nom", entite.getNom());
+	
 		@SuppressWarnings("unchecked")
 		List<E> results = query.getResultList();
-		
 		if (results.isEmpty()) {
 			return null;
 		}

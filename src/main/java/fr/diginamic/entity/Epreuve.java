@@ -106,7 +106,7 @@ public class Epreuve {
 	@Override
 	public String toString() {
 		return "Epreuve [id=" + id + ", nom=" + nom + ", sport=" + sport + ", paysOrganisateur=" + paysOrganisateur
-				+ ", medailles=" + medailles + ", traductionsEpreuves=" + traductionsEpreuves + "]";
+				+ ", traductionsEpreuves=" + traductionsEpreuves + "]";
 	}
 
 	/**Getter id

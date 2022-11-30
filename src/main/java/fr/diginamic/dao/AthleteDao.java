@@ -53,7 +53,6 @@ public class AthleteDao<E extends Athlete> extends AbstractDao {
 	public Athlete findbyNom(E entite) {
 		Query query = em.createQuery("FROM Athlete WHERE nom=:nom");
 		query.setParameter("nom", entite.getNom());
-	
 		@SuppressWarnings("unchecked")
 		List<E> results = query.getResultList();
 		if (results.isEmpty()) {

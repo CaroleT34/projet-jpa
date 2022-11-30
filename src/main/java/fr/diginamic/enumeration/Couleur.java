@@ -11,9 +11,10 @@ package fr.diginamic.enumeration;
  */
 public enum Couleur {
 
-	OR("Or"), 
-	ARGENT("Argent"), 
-	BRONZE("Bronze");
+	Gold("Gold"), 
+	Silver("Silver"), 
+	Bronze("Bronze"),
+	NA("NA");
 
 	private String label;
 	
@@ -32,16 +33,16 @@ public enum Couleur {
 		return label;
 	}
 	
-	/* Afficher la couleur */
-	public static String afficheCouleur(String label) {
-		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
-		if (label.equals("Or")) {
-			return label;
-		} else if (label.equals("Argent")){
-			return label;
-		}else if (label.equals("Bronze")){
-			return label;
-		}
-		return "Couleur non conforme : " + label + " non attendu";
-	}
+//	/* Afficher la couleur */
+//	public static String afficheCouleur(String label) {
+//		label = label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
+//		if (label.equals("Or")) {
+//			return label;
+//		} else if (label.equals("Argent")){
+//			return label;
+//		}else if (label.equals("Bronze")){
+//			return label;
+//		}
+//		return "Couleur non conforme : " + label + " non attendu";
+//	}
 }
